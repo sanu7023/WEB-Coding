@@ -1,0 +1,14 @@
+DMARC DNS
+
+name = _dmarc.website domain name
+
+type = TXT
+
+data = v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@ericagroup.in; ruf=mailto:dmarc-forensics@ericagroup.in; fo=1; pct=100; adkim=r; aspf=r
+
+or
+
+data = v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@ericagroup.in; ruf=mailto:dmarc-forensics@ericagroup.in; fo=1; pct=100; adkim=r; aspf=r
+
+==============================================================================
+
