@@ -1,0 +1,23 @@
+# Defines 404 error pages content:
+    ErrorDocument 404 /404.php
+    
+    RewriteCond %{THE_REQUEST} ^.*index.*$ [NC]
+    RewriteRule ^index(\.php)?$ /404.php [L,R=404]
+    
+    RewriteCond %{THE_REQUEST} ^.*index.php.*$ [NC]
+    RewriteRule ^index.php(\.php)?$ /404.html [L,R=404]
+    
+    RewriteCond %{THE_REQUEST} ^.*about.php.*$ [NC]
+    RewriteRule ^about.php(\.php)?$ /404.html [L,R=404]
+    
+    RewriteCond %{THE_REQUEST} ^.*work.php.*$ [NC]
+    RewriteRule ^work.php(\.php)?$ /404.html [L,R=404]
+    
+    RewriteCond %{THE_REQUEST} ^.*archive.php.*$ [NC]
+    RewriteRule ^archive.php(\.php)?$ /404.html [L,R=404]
+    
+    RewriteCond %{THE_REQUEST} ^.*award.php.*$ [NC]
+    RewriteRule ^award.php(\.php)?$ /404.html [L,R=404]
+    
+    RewriteCond %{THE_REQUEST} ^.*contact.php.*$ [NC]
+    RewriteRule ^contact.php(\.php)?$ /404.html [L,R=404]
