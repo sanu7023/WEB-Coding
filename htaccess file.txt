@@ -1,0 +1,55 @@
+<ifModule mod_rewrite.c>
+
+    #Enable Rewrite Engine on 
+    RewriteEngine On
+    
+    #Rewrite Condition for Directory
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    #Rewrite Condition for File
+    RewriteCond %{REQUEST_FILENAME} !-f
+    
+    #Rewrite Rule
+    RewriteRule ^([^\.]+)$ $1.php [NC,L] 
+    
+</IfModule>
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^nimbuselements.com
+RewriteRule (.*) https://www.nimbuselements.com/$1 [R=301,L]
+
+
+ RewriteEngine on
+    RewriteBase /
+    
+    # Defines 404 error pages content:
+    ErrorDocument 404 /404.php
+    
+    # for all invalid links (non existing files):
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule .* - [L,R=404]
+
+    # for some valid links (existing files to be un-accessible):
+    RewriteCond %{THE_REQUEST} ^.*index.php.*$ [NC]
+    RewriteRule .* - [L,R=404]
+    
+    # for some valid links (existing files to be un-accessible):
+    RewriteCond %{THE_REQUEST} ^.*index.*$ [NC]
+    RewriteRule .* - [L,R=404]
+    
+    # for some valid links (existing files to be un-accessible):
+    RewriteCond %{THE_REQUEST} ^.*about.php.*$ [NC]
+    RewriteRule .* - [L,R=404]
+    
+    # for some valid links (existing files to be un-accessible):
+    RewriteCond %{THE_REQUEST} ^.*contact.php.*$ [NC]
+    RewriteRule .* - [L,R=404]
+    
+    # for some valid links (existing files to be un-accessible):
+    RewriteCond %{THE_REQUEST} ^.*products.php.*$ [NC]
+    RewriteRule .* - [L,R=404]
+    
+    # for some valid links (existing files to be un-accessible):
+    RewriteCond %{THE_REQUEST} ^.*privacy-policy.php.*$ [NC]
+    RewriteRule .* - [L,R=404]
