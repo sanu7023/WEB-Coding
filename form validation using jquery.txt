@@ -1,0 +1,71 @@
+<!-- ========== jquery cdn link  ========== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- ========== jquery validation cdn link ========== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
+        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+$(document).ready(function () {
+// form validation
+
+    let $contact_form = $("#contact_form");
+    
+    $contact_form.validate({
+        rules: {
+            uname: {
+                required: true,
+                minlength: 3,
+                maxlength: 20,
+                lattersonly: true,
+            },
+            uemail: {
+                required: true,
+                email: true,
+            },
+            umobile: {
+                required: true,
+                minlength: 10,
+                maxlength: 10,
+                numericonly: true,
+            },
+        },
+        messages: {
+            uname: {
+                required: "Please enter your name",
+                minlength: "Name minimum length is 3",
+                maxlength: "Name maximum length is 20",
+                lattersonly: "invalid user name"
+            },
+            uemail: {
+                required: "Please enter your email",
+                email: "Please enter your valid email",
+            },
+            umobile: {
+                required: "Please enter your mobile no.",
+                numericonly: "invalid phone number",
+                minlength: "mobile minimum length is 10",
+                maxlength: "mobile maximum length is 10",
+            },
+        },
+
+        // submitHandler: function (form) {
+        //     form.submit();
+        // },
+    });
+
+    jQuery.validator.addMethod('lattersonly', function(value, element) {
+        return /^[^-\s][a-zA-Z_\s-]+$/.test(value);
+    });
+
+    jQuery.validator.addMethod('numericonly', function(value, element) {
+        return /^[0-9]+$/.test(value);
+    });
+
+    jQuery.validator.addMethod('all', function(value, element) {
+        return /^[^-\s][a-zA-Z0-9_\s-]+$/.test(value);
+    });
+})
