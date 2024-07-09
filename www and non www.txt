@@ -1,0 +1,24 @@
+www to non-www Example: www.ateo.in to https://ateo.in
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www.ateo.in/ 
+RewriteRule (.*) https://ateo.in/$1 [R=301,L]
+
+non-www to www Example: ateo.in/ to https://www.ateo.in/
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^ateo.in
+RewriteRule (.*) https://www.ateo.in/$1 [R=301,L]
+
+http to https redirect http://www.ateo.in/ to https://www.ateo.in/
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</IfModule>
+
+All Main Domain: https://ateo.in.in/
+http://www.ateo.in/
+https://www.ateo.in/
+http://ateo.in/
