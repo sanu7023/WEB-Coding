@@ -1,0 +1,90 @@
+====================== HTML CODE SECTION START ======================
+<!-- ========== banner section start ========== -->
+    <div class="banner_video_container">
+        <div class="carousel">
+            <div class="carousel-slides">
+                <div class="carousel-slide" data-interval="3000">
+                    <img src="assets/images/WEBSITE-BANNER.jpg" alt="Image 1">
+                </div>
+
+                <div class="carousel-slide" data-interval="3000">
+                    <img src="assets/images/WEBSITE BANNER1.jpg" alt="Image 2">
+                </div>
+
+                <div class="carousel-slide" data-interval="3000">
+                    <img src="assets/images/WEBSITE BANNER2.jpg" alt="Image 3">
+                </div>
+
+                <div class="carousel-slide" data-interval="41000">
+                    <video src="assets/images/banner-video.mp4" title="splice group videos" autoplay muted loop playsinline></video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== banner section end ========== -->
+====================== HTML CODE SECTION END ======================
+
+
+====================== CSS CODE SECTION START ======================
+/* ========== banner section start ========== */
+.banner_video_container {
+    margin-top: 8.5rem;
+    position: relative;
+}
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    /* box-sizing: border-box; */
+}
+
+.carousel-slide img,
+.carousel-slide video {
+    width: 100%;
+    height: auto;
+}
+/* ========== banner section end ========== */
+====================== CSS CODE SECTION END ======================
+
+
+====================== JAVASCRIPT CODE SECTION START ======================
+// ========== custome home page slider image with video section start ==========
+document.addEventListener('DOMContentLoaded', ()=>{
+const carouselSlides = document.querySelector('.carousel-slides');
+const slides = Array.from(carouselSlides.querySelectorAll('.carousel-slide'));
+const totalSlides = slides.length;
+// alert(totalSlides)
+let index = 0;
+
+function moveToNextSlide() {
+    // Move to the next slide
+    index = (index + 1) % totalSlides;
+    const offset = -index * 100; // Percentage based on slide count
+    carouselSlides.style.transform = `translateX(${offset}%)`;
+
+    // Get the interval for the next slide
+    const nextInterval = parseInt(slides[index].getAttribute('data-interval'), 10);
+
+    // Schedule the next slide change
+    setTimeout(moveToNextSlide, nextInterval);
+}
+
+// Initialize carousel
+function startCarousel() {
+    const initialInterval = parseInt(slides[index].getAttribute('data-interval'), 10);
+    setTimeout(moveToNextSlide, initialInterval);
+}
+
+startCarousel();
+})
+// ========== custome home page slider image with video section end ==========
+====================== JAVASCRIPT CODE SECTION END ======================
