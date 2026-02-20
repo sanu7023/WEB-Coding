@@ -1,0 +1,22 @@
+Tiny textarea field code
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+      selector: ".mceEditor",
+      relative_urls: false,
+      remove_script_host: false,
+      convert_urls: false,
+      // 2. Fix for Drawers/Modals
+      ui_mode: 'split', 
+      plugins: [
+        "anchor", "autolink", "charmap", "codesample", "emoticons", 
+        "image", "link", "lists", "media", "searchreplace", 
+        "table", "visualblocks", "wordcount"
+      ],
+      toolbar: "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | numlist bullist | emoticons charmap | removeformat",
+      menubar: "file edit view insert format tools table",
+      branding: false,
+    });
+</script>
