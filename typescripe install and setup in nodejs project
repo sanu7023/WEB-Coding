@@ -1,0 +1,32 @@
+1. create a project
+2. npm init -y
+3. npm i --save-dev typescript
+4. npm i --save-dev ts-node
+5. npm i --save-dev @types/node
+6. npm i express
+7. npm i --save-dev @types/express
+8. npm i mongoose
+9. npm i dotenv
+10. npm i cors
+11. create tsconfig.json file in root and paste these codes
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./dist",
+        "rootDir": "./src"
+    },
+    "include": ["src"],
+    "exclude": ["node_module"]
+}
+12. npm i nodemon
+13. create nodemon.json file in root and paste these codes
+{
+    "watch": ["src"],
+    "ext": "ts",
+    "exec": "ts-node src/index.ts"
+}
